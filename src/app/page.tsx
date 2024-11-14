@@ -1,19 +1,30 @@
+import { SignInButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
-export default function Home() {
+export default async function Home() {
+    const { userId } = await auth();
+
+    if (userId) {
+        redirect("/chat");
+    }
+
     return (
         <main className="min-h-screen bg-background">
             {/* Header with login button */}
             <header className="fixed w-full p-4 z-10">
                 <div className="flex justify-end max-w-7xl mx-auto">
-                    <Button
-                        variant="outline"
-                        size="lg"
-                        className="font-medium border-secondary hover:border-secondary hover:bg-secondary/10 text-secondary"
-                    >
-                        Login
-                    </Button>
+                    <SignInButton>
+                        <Button
+                            variant="outline"
+                            size="lg"
+                            className="font-medium border-secondary hover:border-secondary hover:bg-secondary/10 text-secondary"
+                        >
+                            Login with Google
+                        </Button>
+                    </SignInButton>
                 </div>
             </header>
 

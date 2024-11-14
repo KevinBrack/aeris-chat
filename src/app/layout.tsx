@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -29,13 +30,23 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className="dark">
-            <body
-                className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
-                style={{ backgroundColor: "#282A36" }}
-            >
-                {children}
-            </body>
-        </html>
+        <ClerkProvider
+            appearance={{
+                elements: {
+                    formButtonPrimary: "bg-primary hover:bg-primary/90",
+                    footerActionLink: "text-primary hover:text-primary/90",
+                    card: "bg-background",
+                },
+            }}
+        >
+            <html lang="en" className="dark">
+                <body
+                    className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+                    style={{ backgroundColor: "#282A36" }}
+                >
+                    {children}
+                </body>
+            </html>
+        </ClerkProvider>
     );
 }
