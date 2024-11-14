@@ -16,11 +16,11 @@ export default function TermsOfService() {
                             1. Acceptance of Terms
                         </h2>
                         <p>
-                            By accessing and using Aeris Chat ("the Service"),
-                            you agree to be bound by these Terms of Service and
-                            all applicable laws and regulations. If you do not
-                            agree with any of these terms, you are prohibited
-                            from using the Service.
+                            By accessing and using Aeris Chat (&ldquo;the
+                            Service&rdquo;), you agree to be bound by these
+                            Terms of Service and all applicable laws and
+                            regulations. If you do not agree with any of these
+                            terms, you are prohibited from using the Service.
                         </p>
                     </section>
 
@@ -107,8 +107,8 @@ export default function TermsOfService() {
                             6. Limitation of Liability
                         </h2>
                         <p>
-                            The Service is provided "as is". We make no
-                            warranties, expressed or implied, and hereby
+                            The Service is provided &ldquo;as is&rdquo;. We make
+                            no warranties, expressed or implied, and hereby
                             disclaim all warranties, including without
                             limitation implied warranties of merchantability and
                             fitness for a particular purpose.
@@ -123,7 +123,7 @@ export default function TermsOfService() {
                             If you have any questions about these Terms of
                             Service, please contact us at:
                         </p>
-                        <p>Email: brackkevin@gmail.com</p>
+                        <p>Email: terms@aeris-chat.com</p>
                     </section>
                 </section>
             </div>
