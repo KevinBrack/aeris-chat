@@ -1,0 +1,22 @@
+// Development schema using SQLite
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DEV_DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Clerk related fields
+  clerkId   String   @unique
+  firstName String?
+  lastName  String?
+  imageUrl  String?
+}
