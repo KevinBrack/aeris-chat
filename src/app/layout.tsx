@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import localFont from "next/font/local";
+import { Footer } from "@/components/ui/footer";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -41,10 +42,11 @@ export default function RootLayout({
         >
             <html lang="en" className="dark">
                 <body
-                    className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+                    className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased min-h-screen flex flex-col`}
                     style={{ backgroundColor: "#282A36" }}
                 >
-                    {children}
+                    <main className="flex-1">{children}</main>
+                    <Footer />
                 </body>
             </html>
         </ClerkProvider>
