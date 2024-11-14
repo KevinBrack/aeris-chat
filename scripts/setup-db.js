@@ -1,6 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 
+// Load environment variables from .env.local
+const envPath = path.join(process.cwd(), ".env.local");
+require("dotenv").config({ path: envPath });
+
 // Verify required environment variables
 const requiredEnvVars = [
     // Database URLs
