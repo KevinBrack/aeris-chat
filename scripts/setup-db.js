@@ -1,11 +1,27 @@
 const fs = require("fs");
 const path = require("path");
 
-// Verify required Postgres environment variables
+// Verify required environment variables
 const requiredEnvVars = [
-    "POSTGRES_URL",
+    // Database URLs
+    "DATABASE_URL",
+    "DATABASE_URL_UNPOOLED",
+
+    // Postgres Connection Details
+    "PGDATABASE",
+    "PGHOST",
+    "PGHOST_UNPOOLED",
+    "PGPASSWORD",
+    "PGUSER",
+
+    // Vercel Postgres Configuration
+    "POSTGRES_DATABASE",
+    "POSTGRES_HOST",
+    "POSTGRES_PASSWORD",
     "POSTGRES_PRISMA_URL",
+    "POSTGRES_URL",
     "POSTGRES_URL_NON_POOLING",
+    "POSTGRES_URL_NO_SSL",
     "POSTGRES_USER",
 ];
 
