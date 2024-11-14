@@ -1,30 +1,58 @@
-import { SignInButton } from '@clerk/nextjs'
-import { auth } from '@clerk/nextjs/server'
-import { redirect } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { auth, signIn, signOut } from '@/auth'
+import Link from 'next/link'
 
 export default async function Home() {
-  const { userId } = await auth()
-
-  if (userId) {
-    redirect('/chat')
-  }
+  const session = await auth()
 
   return (
     <main className="min-h-screen bg-background">
-      {/* Header with login button */}
+      {/* Header with auth buttons */}
       <header className="fixed w-full p-4 z-10">
-        <div className="flex justify-end max-w-7xl mx-auto">
-          <SignInButton>
-            <Button
-              variant="outline"
-              size="lg"
-              className="font-medium border-secondary hover:border-secondary hover:bg-secondary/10 text-secondary"
+        <div className="flex justify-end max-w-7xl mx-auto gap-4">
+          {session?.user ? (
+            <>
+              <Link href="/chat">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="font-medium border-primary hover:border-primary hover:bg-primary/10 text-primary"
+                >
+                  Go to Chat
+                </Button>
+              </Link>
+              <form
+                action={async () => {
+                  'use server'
+                  await signOut()
+                }}
+              >
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="font-medium border-secondary hover:border-secondary hover:bg-secondary/10 text-secondary"
+                >
+                  Sign Out
+                </Button>
+              </form>
+            </>
+          ) : (
+            <form
+              action={async () => {
+                'use server'
+                await signIn('google')
+              }}
             >
-              Login with Google
-            </Button>
-          </SignInButton>
+              <Button
+                variant="outline"
+                size="lg"
+                className="font-medium border-secondary hover:border-secondary hover:bg-secondary/10 text-secondary"
+              >
+                Sign in with Google
+              </Button>
+            </form>
+          )}
         </div>
       </header>
 

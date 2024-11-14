@@ -9,7 +9,11 @@ try {
   // Execute the Prisma command with environment variables
   execSync(`npx prisma ${prismaCommand}`, {
     stdio: 'inherit',
-    env: process.env,
+    env: {
+      ...process.env,
+      DATABASE_URL: process.env.POSTGRES_PRISMA_URL,
+      DIRECT_URL: process.env.POSTGRES_URL_NON_POOLING,
+    },
   })
 } catch (error) {
   process.exit(1)
