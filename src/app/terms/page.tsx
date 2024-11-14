@@ -123,7 +123,7 @@ export default function TermsOfService() {
                             If you have any questions about these Terms of
                             Service, please contact us at:
                         </p>
-                        <p>Email: terms@aeris-chat.com</p>
+                        <p>Email: brackkevin@gmail.com</p>
                     </section>
                 </section>
             </div>
