@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import { Footer } from '@/components/ui/footer'
+import { Navbar } from '@/components/ui/navbar'
 import './globals.css'
 
 const geistSans = localFont({
@@ -35,6 +36,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased min-h-screen flex flex-col`}
         style={{ backgroundColor: '#282A36' }}
       >
+        <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
