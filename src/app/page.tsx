@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 export default async function Home() {
   const session = await auth()
+  const isDev = process.env.NODE_ENV !== 'production'
 
   return (
     <main className="min-h-screen bg-background">
@@ -41,7 +42,7 @@ export default async function Home() {
             <form
               action={async () => {
                 'use server'
-                await signIn('google')
+                await signIn(isDev ? 'mock-login' : 'google')
               }}
             >
               <Button
@@ -49,7 +50,7 @@ export default async function Home() {
                 size="lg"
                 className="font-medium border-secondary hover:border-secondary hover:bg-secondary/10 text-secondary"
               >
-                Sign in with Google
+                Sign {isDev ? 'in as Kevin' : 'in with Google'}
               </Button>
             </form>
           )}
