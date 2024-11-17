@@ -1,44 +1,37 @@
 import { Button } from '@/components/ui/button'
-import { auth, signOut } from '@/auth'
+import { auth, signIn } from '@/auth'
+import Link from 'next/link'
+import { UserMenu } from '@/components/ui/user-menu'
 
 export async function Navbar() {
   const session = await auth()
 
-  if (!session?.user) {
-    return null
-  }
-
   return (
-    <header className="fixed w-full p-4 z-10 bg-background/50 backdrop-blur-sm border-b border-border">
+    <header className="sticky top-0 w-full p-4 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
-        <h1 className="text-xl font-bold text-primary">Aeris Chat</h1>
+        <Link href="/" className="flex items-center gap-2">
+          <h1 className="text-xl font-bold text-primary">Aeris Chat</h1>
+        </Link>
+
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            {session.user.image && (
-              <img
-                src={session.user.image}
-                alt={session.user.name ?? 'User'}
-                className="w-8 h-8 rounded-full"
-              />
-            )}
-            <span className="text-sm text-muted-foreground">
-              {session.user.name}
-            </span>
-          </div>
-          <form
-            action={async () => {
-              'use server'
-              await signOut()
-            }}
-          >
-            <Button
-              variant="outline"
-              size="sm"
-              className="font-medium border-secondary hover:border-secondary hover:bg-secondary/10 text-secondary"
+          {session?.user ? (
+            <UserMenu user={session.user} />
+          ) : (
+            <form
+              action={async () => {
+                'use server'
+                await signIn(process.env.NODE_ENV !== 'production' ? 'mock-login' : 'google')
+              }}
             >
-              Sign Out
-            </Button>
-          </form>
+              <Button
+                variant="outline"
+                size="sm"
+                className="font-medium border-border hover:border-secondary hover:bg-secondary/10 text-secondary"
+              >
+                Sign in
+              </Button>
+            </form>
+          )}
         </div>
       </div>
     </header>
