@@ -7,7 +7,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from '@/components/ui/dropdown-menu'
 
 interface UserMenuProps {
   user: {
@@ -21,7 +21,7 @@ export function UserMenu({ user }: UserMenuProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button 
+        <button
           className="flex items-center justify-center w-8 h-8 rounded-full overflow-hidden border border-border hover:border-secondary transition"
           aria-label="User menu"
         >
@@ -40,14 +40,13 @@ export function UserMenu({ user }: UserMenuProps) {
           )}
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent 
-        align="end" 
-        className="w-48"
-      >
+      <DropdownMenuContent align="end" className="w-48">
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">{user.name}</p>
-            <p className="text-xs leading-none text-muted-foreground">{user.email}</p>
+            <p className="text-xs leading-none text-muted-foreground">
+              {user.email}
+            </p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -57,7 +56,7 @@ export function UserMenu({ user }: UserMenuProps) {
             await signOut()
           }}
         >
-          <DropdownMenuItem 
+          <DropdownMenuItem
             asChild
             className="text-destructive focus:text-destructive focus:bg-destructive/10"
           >

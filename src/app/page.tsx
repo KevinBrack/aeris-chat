@@ -8,7 +8,7 @@ export default async function Home() {
   const isDev = process.env.NODE_ENV !== 'production'
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen">
       {/* Header with auth buttons */}
       <header className="fixed w-full p-4 z-10">
         <div className="flex justify-end max-w-7xl mx-auto gap-4">
@@ -59,7 +59,7 @@ export default async function Home() {
 
       {/* Hero section */}
       <div className="flex items-center justify-center min-h-screen p-4">
-        <Card className="bg-background/50 border-primary/20 backdrop-blur-sm max-w-2xl w-full">
+        <Card className="border-primary/20 backdrop-blur-sm max-w-2xl w-full">
           <CardHeader>
             <h1 className="text-6xl font-bold text-center">
               Meet{' '}

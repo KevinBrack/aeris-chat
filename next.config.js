@@ -4,7 +4,7 @@ const nextConfig = {
     serverActions: {
       allowedOrigins: [
         'localhost:3000',
-        'stunning-barnacle-q79xg59g6vpc455p-3000.app.github.dev'
+        'stunning-barnacle-q79xg59g6vpc455p-3000.app.github.dev',
       ],
     },
   },
