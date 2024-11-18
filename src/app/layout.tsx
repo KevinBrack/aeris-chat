@@ -1,6 +1,7 @@
-import type { Metadata, Viewport } from 'next'
+import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import { Footer } from '@/components/ui/footer'
+import { Navbar } from '@/components/ui/navbar'
+import { HelpMenu } from '@/components/ui/help-menu'
 import './globals.css'
 
 const geistSans = localFont({
@@ -13,15 +14,15 @@ const geistMono = localFont({
   variable: '--font-geist-mono',
   weight: '100 900',
 })
+const aerisFont = localFont({
+  src: './fonts/Aeris.woff',
+  variable: '--font-aeris',
+})
 
 export const metadata: Metadata = {
   title: 'Aeris - Your Quantum Sass Companion',
   description:
     'Meet Aeris, your brilliantly witty AI companion with a dash of quantum sass',
-}
-
-export const viewport: Viewport = {
-  themeColor: '#282A36',
 }
 
 export default function RootLayout({
@@ -30,13 +31,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased min-h-screen flex flex-col`}
-        style={{ backgroundColor: '#282A36' }}
+        className={`${geistSans.variable} ${geistMono.variable} ${aerisFont.variable} font-sans antialiased flex flex-col dark`}
       >
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <Navbar />
+        {children}
+        <HelpMenu />
       </body>
     </html>
   )
