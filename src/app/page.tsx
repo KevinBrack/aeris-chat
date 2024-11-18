@@ -7,9 +7,9 @@ export default async function Home() {
       <div className="flex items-center justify-center min-h-screen p-4">
         <Card className="max-w-2xl w-full">
           <CardHeader>
-            <h1 className="text-6xl font-bold text-center">
-              Meet{' '}
-              <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+            <h1 className="text-6xl text-center">
+              <span className="font-sans">Meet</span>{' '}
+              <span className="font-aeris text-8xl bg-gradient-to-r from-[#FF79C6] to-[#BD93F9] bg-clip-text text-transparent">
                 Aeris
               </span>
             </h1>
