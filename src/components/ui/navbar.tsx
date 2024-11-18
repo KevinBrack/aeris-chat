@@ -7,10 +7,10 @@ export async function Navbar() {
   const session = await auth()
 
   return (
-    <header className="sticky top-0 w-full p-4 z-50 bg-card">
+    <header className="sticky top-0 w-full py-2 px-4 z-50">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         <Link href="/" className="flex items-center gap-2">
-          <h1 className="text-xl font-bold text-primary">Aeris</h1>
+          <h1 className="text-5xl font-aeris text-primary">Aeris</h1>
         </Link>
 
         <div className="flex items-center gap-4">

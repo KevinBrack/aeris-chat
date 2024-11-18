@@ -14,6 +14,10 @@ const geistMono = localFont({
   variable: '--font-geist-mono',
   weight: '100 900',
 })
+const aerisFont = localFont({
+  src: './fonts/Aeris.woff',
+  variable: '--font-aeris',
+})
 
 export const metadata: Metadata = {
   title: 'Aeris - Your Quantum Sass Companion',
@@ -29,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased min-h-screen flex flex-col dark`}
+        className={`${geistSans.variable} ${geistMono.variable} ${aerisFont.variable} font-sans antialiased min-h-screen flex flex-col dark`}
       >
         <Navbar />
         <main className="flex-1">{children}</main>
