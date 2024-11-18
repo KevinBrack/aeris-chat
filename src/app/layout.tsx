@@ -33,10 +33,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${aerisFont.variable} font-sans antialiased min-h-screen flex flex-col dark`}
+        className={`${geistSans.variable} ${geistMono.variable} ${aerisFont.variable} font-sans antialiased flex flex-col dark`}
       >
         <Navbar />
-        <main className="flex-1">{children}</main>
+        {children}
         <HelpMenu />
       </body>
     </html>

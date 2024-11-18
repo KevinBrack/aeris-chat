@@ -2,9 +2,9 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 
 export default async function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="h-[calc(100vh-57px)]">
       {/* Hero section */}
-      <div className="flex items-center justify-center min-h-screen p-4">
+      <div className="flex items-center justify-center h-full p-4">
         <Card className="max-w-2xl w-full">
           <CardHeader>
             <h1 className="text-6xl text-center">
