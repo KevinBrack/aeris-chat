@@ -3,16 +3,16 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import Link from "next/link"
-import { CircleHelp } from "lucide-react"
+} from '@/components/ui/dropdown-menu'
+import Link from 'next/link'
+import { CircleHelp } from 'lucide-react'
 
 export function HelpMenu() {
   return (
     <div className="fixed bottom-4 right-4 z-50">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-            <CircleHelp className="h-6 w-6 text-primary cursor-pointer" />
+          <CircleHelp className="h-6 w-6 text-primary cursor-pointer" />
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-48">
           <DropdownMenuItem asChild>

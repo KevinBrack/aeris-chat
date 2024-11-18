@@ -25,17 +25,17 @@ const mockUser = {
       token_type: 'Bearer',
       scope: 'openid profile email',
       id_token: 'mock-id-token',
-      session_state: 'mock-session-state'
-    }
+      session_state: 'mock-session-state',
+    },
   ],
   sessions: [
     {
       id: 'mock-session-id',
       sessionToken: 'mock-session-token',
       userId: 'mock-id',
-      expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) // 30 days from now
-    }
-  ]
+      expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // 30 days from now
+    },
+  ],
 }
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
