@@ -12,6 +12,30 @@ const mockUser = {
   email: 'brackkevin@gmail.com',
   image: 'https://avatars.githubusercontent.com/u/13532991',
   emailVerified: new Date(),
+  accounts: [
+    {
+      id: 'mock-account-id',
+      userId: 'mock-id',
+      type: 'oauth',
+      provider: 'google',
+      providerAccountId: 'mock-google-id',
+      refresh_token: 'mock-refresh-token',
+      access_token: 'mock-access-token',
+      expires_at: Math.floor(Date.now() / 1000) + 3600,
+      token_type: 'Bearer',
+      scope: 'openid profile email',
+      id_token: 'mock-id-token',
+      session_state: 'mock-session-state'
+    }
+  ],
+  sessions: [
+    {
+      id: 'mock-session-id',
+      sessionToken: 'mock-session-token',
+      userId: 'mock-id',
+      expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) // 30 days from now
+    }
+  ]
 }
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
