@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import { Footer } from '@/components/ui/footer'
 import { Navbar } from '@/components/ui/navbar'
+import { HelpMenu } from '@/components/ui/help-menu'
 import './globals.css'
 
 const geistSans = localFont({
@@ -33,7 +33,7 @@ export default function RootLayout({
       >
         <Navbar />
         <main className="flex-1">{children}</main>
-        <Footer />
+        <HelpMenu />
       </body>
     </html>
   )
