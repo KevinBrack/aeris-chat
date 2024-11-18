@@ -7,7 +7,7 @@ export async function Navbar() {
   const session = await auth()
 
   return (
-    <header className="sticky top-0 w-full p-4 z-50 border-b border-border">
+    <header className="sticky top-0 w-full p-4 z-50 bg-card">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         <Link href="/" className="flex items-center gap-2">
           <h1 className="text-xl font-bold text-primary">Aeris</h1>
@@ -27,13 +27,7 @@ export async function Navbar() {
                 )
               }}
             >
-              <Button
-                variant="outline"
-                size="sm"
-                className="font-medium border-primary hover:border-primary hover:bg-primary/10 text-primary"
-              >
-                Sign in
-              </Button>
+              <Button>Sign in</Button>
             </form>
           )}
         </div>
